@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<Configuration>
+	<Properties>
+		<MetaInfo>
+			<Icon>Google Drive Copy/Google Drive CopyIcon.png</Icon>
+			<Name>Google Drive Copy</Name>
+			<CategoryName>Connectors</CategoryName>
+			<ToolVersion>2.0.0</ToolVersion>
+			<Author>Rick Paugh</Author>
+			<Description>Copy content from one Google Drive to another (including Team Drives).</Description>
+		</MetaInfo>
+	</Properties>
+</Configuration>
