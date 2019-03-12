@@ -79,6 +79,8 @@
         <ayx data-ui-props='{type:"TextBox", widgetId:"NewFolderId"}'></ayx>
         <h3>XMSG("Team Drive Id:")</h3>
         <ayx data-ui-props='{type:"TextBox", widgetId:"TeamDriveId"}'></ayx>
+        <h3>XMSG("Exclude Ids (comma-delimited list):")</h3>
+        <ayx data-ui-props='{type:"TextBox", widgetId:"ExcludeIds"}'></ayx>
       </section>
     </article>
 
@@ -109,6 +111,10 @@
         var txtTeamDriveId = new AlteryxDataItems.SimpleString('TeamDriveId')
         manager.addDataItem(txtTeamDriveId)
         manager.bindDataItemToWidget(txtTeamDriveId, 'TeamDriveId')
+        
+        var txtExcludeIds = new AlteryxDataItems.SimpleString('ExcludeIds')
+        manager.addDataItem(txtExcludeIds)
+        manager.bindDataItemToWidget(txtExcludeIds, 'ExcludeIds')
       }
 
       Alteryx.Gui.AfterLoad = function (manager) {
