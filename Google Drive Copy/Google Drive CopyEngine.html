@@ -222,7 +222,7 @@
                     } else {
                         Alteryx.Engine.SendMessage.Error(JSON.stringify(error));
                     }
-                    Alteryx.Engine.SendMessage.Complete();
+                    //Alteryx.Engine.SendMessage.Complete();
                 });
                     
             }
@@ -266,7 +266,7 @@
                     files.push(fileDetails);
                 }).catch(function (error) {
                     Alteryx.Engine.SendMessage.Error(error.message);
-                    Alteryx.Engine.SendMessage.Complete();
+                    //Alteryx.Engine.SendMessage.Complete();
                 });;
             }
             return files;
@@ -289,8 +289,8 @@
                 };
                 xhr.onerror = function () {
                   reject({
-                    status: this.status,
-                    statusText: xhr.statusText
+                    status: this.status/*,
+                    statusText: xhr.statusText*/
                   });
                 };
                 xhr.send();
@@ -322,17 +322,12 @@
                             currentFolderId: files[i].id,
                             newFolderId: copiedItem.id
                         });
-
-                        if (files[i].title == "FY 2014") {
-                            console.log(files[i].id);
-                            console.log(copiedItem.id);
-                        }
                     }
                     Alteryx.Engine.SendMessage.PushRecords("Output", [[files[i].title, files[i].mimeType, "https://www.googleapis.com/drive/v2/files/" + files[i].id,"https://www.googleapis.com/drive/v2/files/" + copiedItem.id]]);
                     //return;
                 }).catch(function (error) {
                     Alteryx.Engine.SendMessage.Error(error.message);
-                    Alteryx.Engine.SendMessage.Complete();
+                    Alteryx.Engine.SendMessage.PushRecords("Output", [[files[i].title, files[i].mimeType, "https://www.googleapis.com/drive/v2/files/" + files[i].id,"Error"]]);
                 });
             }
             return folders;
